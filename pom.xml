@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://apache.org"
+         xmlns:xsi="http://w3.org"
+         xsi:schemaLocation="http://apache.org http://apache.org">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.kakeiboapp.app</groupId>
+    <artifactId>kakeibo_app</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- 💡 JavaとJavaFXのバージョンを「25」に固定して足並みを揃えました -->
+        <maven.compiler.source>25</maven.compiler.source>
+        <maven.compiler.target>25</maven.compiler.target>
+        <javafx.version>25</javafx.version>
+    </properties>
+
+    <dependencies>
+        <!-- JavaFX Controls -->
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-controls</artifactId>
+            <version>${javafx.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!-- コンパイル用プラグイン -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.13.0</version>
+                <configuration>
+                    <release>25</release>
+                </configuration>
+            </plugin>
+
+            <!-- 実行用プラグイン（大文字小文字のズレを予防） -->
+            <plugin>
+                <groupId>org.openjfx</groupId>
+                <artifactId>javafx-maven-plugin</artifactId>
+                <version>0.0.8</version>
+                <configuration>
+                    <!-- 💡 先ほど作成した奥底の正しいクラス場所を指定しています -->
+                    <mainClass>com.kakeiboapp.app.logic.KakeiboApp</mainClass>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
